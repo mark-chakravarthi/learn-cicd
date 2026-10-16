@@ -15,7 +15,7 @@ func TestGetAPIKey(t *testing.T) {
 	}{
 		"valid header": {header: "ApiKey abc123", want: "abc123"},
 		"no header":    {header: "", wantErr: true, errIs: ErrNoAuthHeaderIncluded},
-		"wrong scheme": {header: "Bearer abc123", wantErr: false},
+		"wrong scheme": {header: "Bearer abc123", wantErr: true},
 		"missing key":  {header: "ApiKey", wantErr: true},
 	}
 
